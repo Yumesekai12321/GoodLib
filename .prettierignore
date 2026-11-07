@@ -1,0 +1,7 @@
+package-lock.json
+initial (1).md
+node_modules/
+data/
+test-results/
+playwright-report/
+artifacts/

@@ -1,0 +1,33 @@
+<%- include('../partials/header') %>
+<section class="page-heading">
+  <div><p class="eyebrow">THƯ VIỆN / DANH MỤC</p><h1>Những trang sách,<br />được sắp xếp gọn gàng.</h1><p class="subtitle">Tra cứu và quản lý kho sách của thư viện.</p></div>
+  <a class="button button-primary" href="/books/new"><span aria-hidden="true">＋</span> Thêm sách</a>
+</section>
+<%- include('../partials/flash') %>
+<section class="catalog" aria-label="Danh sách sách">
+  <div class="catalog-toolbar"><div><h2>Danh mục sách</h2><p><strong><%= pagination.total %></strong> đầu sách<%= q ? ' phù hợp' : ' đang hoạt động' %></p></div><span class="badge badge-neutral">Kho sách</span></div>
+  <%- include('../partials/search', { q }) %>
+  <% if (!books.length) { %>
+    <div class="empty-state"><span class="empty-icon" aria-hidden="true">▤</span><h3><%= q ? 'Không tìm thấy sách phù hợp' : 'Danh mục đang trống' %></h3><p><%= q ? 'Thử mã hoặc tên khác. Từ khóa cần giữ đúng dấu tiếng Việt.' : 'Thêm cuốn sách đầu tiên để bắt đầu quản lý.' %></p><a href="<%= q ? '/books' : '/books/new' %>"><%= q ? 'Xem tất cả sách' : 'Thêm sách mới' %></a></div>
+  <% } else { %>
+    <div class="table-wrap" tabindex="0" role="region" aria-label="Bảng sách, có thể cuộn ngang">
+      <table><caption class="sr-only">Sách đang hoạt động; số còn được hệ thống tính.</caption><thead><tr><th scope="col">Mã sách</th><th scope="col">Tên sách / Tác giả</th><th scope="col">Thể loại</th><th scope="col">Năm</th><th scope="col">Tổng</th><th scope="col">Số còn</th><th scope="col">Trạng thái</th><th scope="col">Thao tác</th></tr></thead>
+      <tbody><% for (const book of books) { %><tr>
+        <td><span class="book-code"><%= book.code %></span></td>
+        <td class="book-info"><strong><%= book.title %></strong><span><%= book.author || 'Chưa cập nhật tác giả' %></span></td>
+        <td><%= book.category || '—' %></td><td><%= book.published_year ?? '—' %></td>
+        <td class="quantity"><%= book.total_quantity %></td><td class="quantity available"><%= book.available_quantity %></td>
+        <td><span class="badge <%= book.available_quantity ? 'badge-green' : 'badge-neutral' %>"><%= book.available_quantity ? 'Còn sách' : 'Hết sách' %></span></td>
+        <td class="actions"><a href="/books/<%= book.id %>/edit" aria-label="Sửa <%= book.code %>">Sửa</a><a class="danger-link" href="/books/<%= book.id %>/archive" aria-label="Xóa mềm <%= book.code %>">Xóa mềm</a></td>
+      </tr><% } %></tbody></table>
+    </div>
+    <div class="catalog-bottom"><span>Số còn được tính tự động từ tổng và số cuốn chưa trả.</span>
+      <nav class="pagination" aria-label="Phân trang">
+        <% if (pagination.page > 1) { %><a href="/books?q=<%= encodeURIComponent(q) %>&page=<%= pagination.page - 1 %>">Trước</a><% } %>
+        <span>Trang <%= pagination.page %> / <%= pagination.pages %></span>
+        <% if (pagination.page < pagination.pages) { %><a href="/books?q=<%= encodeURIComponent(q) %>&page=<%= pagination.page + 1 %>">Sau</a><% } %>
+      </nav>
+    </div>
+  <% } %>
+</section>
+<%- include('../partials/footer') %>
