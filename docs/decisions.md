@@ -1,6 +1,9 @@
-# Quyết định kỹ thuật và phạm vi
+# S1-01 · Quyết định và phạm vi
 
-Các quyết định dưới đây dựa trên `initial (1).md` và yêu cầu chức năng Sprint 1.
+Nguồn: `initial (1).md` và phân công S1-01 → S1-10 trong gói bàn giao
+`01-hoang.zip`. Đối chiếu repo GoodLib ngày **09/11/2026**, giờ Việt Nam.
+Đinh Huy Hoàng theo dõi kế hoạch xuyên suốt. Tài liệu này ghi baseline triển khai,
+không xác nhận thay người phụ trách rằng các mốc lịch sử đã được hoàn thành.
 
 | ID     | Quyết định áp dụng                                                                                                               |
 | ------ | -------------------------------------------------------------------------------------------------------------------------------- |
@@ -14,7 +17,7 @@ Các quyết định dưới đây dựa trên `initial (1).md` và yêu cầu c
 | S1-D08 | Tìm chứa mã/tên, NFC/lowercase tiếng Việt; giữ dấu; không tìm tác giả hay sửa chính tả                                           |
 | S1-D09 | Chặn sửa tổng dưới số chưa trả; có sẵn adapter đếm loans cho S2, không thêm UI mượn/trả                                          |
 | S1-D10 | Chỉ chạy cục bộ trong S1; xác thực/RBAC/CSRF đầy đủ thuộc S3                                                                     |
-| S1-D11 | Khởi tạo Git riêng trong GoodLib vì trước đó Git nhận thư mục cha chứa nhiều dự án; chưa có remote/commit/push                   |
+| S1-D11 | Repo GitHub `Yumesekai12321/GoodLib` đã có nhánh mặc định `main`; mốc đối chiếu S1-01 là commit `68ad1c2`                        |
 | S1-D12 | ESLint 10 được giữ ở dòng còn hỗ trợ; override minimatch 11.0.5 xử lý advisory GHSA-g3hv-75wg-m249; kiểm tra lại khi nâng ESLint |
 
 S1-D12 chỉ ảnh hưởng công cụ lint. Lockfile pin dependency; lint và `npm ci` phải

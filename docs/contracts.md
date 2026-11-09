@@ -1,6 +1,11 @@
-# Hợp đồng dữ liệu và HTTP
+# Sprint 1 · Hợp đồng dữ liệu và HTTP
 
-Tài liệu mô tả schema, endpoint và dữ liệu biểu mẫu của GoodLib trong Sprint 1.
+Đây là hợp đồng triển khai từ đặc tả gốc và yêu cầu Sprint 1 hiện tại, để Sơn,
+Khánh, Tiến và Minh đối chiếu khi bàn giao. Chưa có bằng chứng cuộc họp chốt trước
+31/10; không ghi lùi ngày xác nhận.
+
+Đối chiếu schema, validator và route ở commit `68ad1c2` ngày 09/11/2026.
+Phần này ghi lại hợp đồng đang triển khai, không thay đổi API hay schema.
 
 ## Dữ liệu sách
 

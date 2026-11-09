@@ -2,20 +2,22 @@
 
 > **Status:** `DRAFT / implementation baseline`  
 > **Purpose:** Single entry point for coding GoodLib. This document specifies what to build, how modules interact, and how to verify correctness.  
-> **Scope:** GoodLib technical requirements for S1-S4.  
-> **Authority:** User requirements and the decision log supersede this document.  
+> **Sources:** Group 11's PowerPoint (17 slides) and Agile WBS spreadsheet (`Ke hoach du an`, S1–S4).
+>
+> **Authority:** An approved SRS/decision log supersedes this document. The spreadsheet is the execution baseline where it conflicts with the presentation.
+>
 > **User-facing language:** Vietnamese. **Source code, identifiers, commits, tests:** English.
 
 ## 0. Mandatory agent protocol
 
 1. **Inspect the repository first:** existing source, `package.json`, lockfile, migrations, database adapter, tests, Git status, and related task/PR. Never assume this document describes already implemented code.
-2. **Implement only the requested feature** and its essential dependencies. Follow existing conventions if the repo already has working implementations; explain any necessary divergence.
-3. **Keep contracts stable:** routes, DB columns, service interfaces, form field names, and UI components must remain consistent across the application.
+2. **Implement only the requested WBS task** and its essential dependencies. Follow existing conventions if the repo already has working implementations; explain any necessary divergence.
+3. **Keep contracts stable:** routes, DB columns, service interfaces, form field names, and UI components must be agreed upon before parallel implementation.
 4. **Business invariants are non-negotiable.** Any operation changing loans or stock must be atomic and tested for failure paths.
 5. **Never invent unspecified business rules.** Mark an unresolved policy as `BLOCKED_BY_PRODUCT_DECISION`, implement unrelated work, and report the exact question.
 6. **Validate every change:** lint, relevant tests, migration on a clean test DB, and appropriate manual/E2E smoke tests. Report actual commands and results; never claim an unexecuted test passed.
 7. **No unauthorized destructive operations:** do not reset real DBs, delete historical loans/backups, push/merge, deploy, or change production settings without explicit approval. Use a dedicated test DB and fixtures.
-8. Output per task: `changed files, behavior/contract, tests run/results, unresolved issues`.
+8. Output per task: `changed files → behavior/contract → tests run/results → unresolved issues → suggested PR summary (WBS ID)`.
 
 ## 1. Fixed baseline and scope
 
@@ -252,7 +254,7 @@ Second return request must produce a controlled conflict and **must not** increm
 
 ## 4. HTTP/UI contract (SSR + form posts)
 
-HTTP and UI contracts. If an existing repo already has equivalent stable routes, prefer preserving them and record the difference.
+Proposed contracts for parallel work. If an existing repo already has equivalent stable routes, prefer preserving them and record the difference.
 
 | Method | Route | Purpose | Sprint |
 |---|---|---|---|
@@ -306,7 +308,7 @@ Build the screens listed in Section 4 with shared partials, **not** a generic ad
 - Loan history shows book, reader, borrowed date, due date, return date, status; returned loans are not deletable.
 - Return action requests confirmation, prevents accidental repeat; disabled controls are **not** a substitute for server checks.
 - All inputs have labels, visible focus, keyboard access, helpful inline messages and responsive table overflow. UI text in Vietnamese.
-- Use one design token stylesheet (`src/public/css/tokens.css`) and reusable EJS partials to keep the interface consistent.
+- Use one design token stylesheet (`src/public/css/tokens.css`) and reusable EJS partials so parallel contributors do not invent separate themes.
 
 **AI skills: use selectively, not all at once.** These are external/community agent skills; check their instructions and compatibility before installing. They do not execute by virtue of appearing here.
 
@@ -402,17 +404,44 @@ GoodLib/
 
 Also test 404/400/409 cases, output escaping (stored HTML/XSS payload), basic keyboard navigation, and missing/error/empty UI states. For the slide's **search under 2 seconds** requirement, define hardware, dataset size, query samples and p95 measurement; **do not claim success without benchmarks**. For the **borrow/return in ≤3 main actions** target, verify with a real UI walkthrough.
 
-## 8. Feature roadmap
+## 8. WBS-to-code execution plan
 
-- **S1:** Book CRUD, soft archive, Vietnamese code/title search, stock integrity,
-  SQLite persistence, seed data, automated tests and README.
-- **S2:** Reader management, atomic borrowing and returns, loan history,
-  concurrency and rollback tests.
-- **S3:** Renewal after policy approval, overdue loans, login and role checks.
-- **S4:** Basic statistics, interface polish, regression tests and release documentation.
+Use WBS IDs as PR/issue names. S3/S4 tasks are **coarse estimates** in the sheet and need refinement during their planning meetings. Do not report a WBS task complete without acceptance/test evidence.
 
-Only the requested sprint or feature is implemented. Planned features are not
-considered complete without working code and verification evidence.
+| Sprint / date | WBS | Deliverable in code |
+|---|---|---|
+| **S1 28/10–10/11** | `S1-01` | Confirm book fields, validations and acceptance tests |
+| | `S1-02` | Express/EJS/SQLite bootstrap, migration runner, README, demo seed |
+| | `S1-03` | Working books list/search EJS UI |
+| | `S1-04` | Create-book validation/controller/service/repository/form |
+| | `S1-05` | Update quantity safely; soft-archive book |
+| | `S1-06` | Case-insensitive code/title contains search |
+| | `S1-07` | CRUD/search/negative test cases + seed |
+| | `S1-08` | Integration smoke and clean-install verification |
+| | `S1-09` | Run on second machine, capture reproducible defects |
+| | `S1-10` | Review data integrity, routes and setup instructions |
+| **S2 11/11–24/11** | `S2-01` | Confirm max-10, four-month clamp, loan semantics |
+| | `S2-02` | Readers migration + CRUD/archive validations |
+| | `S2-03` | Reader list/form/search EJS UI |
+| | `S2-04` | Loans migration + transactional borrow + stock checks |
+| | `S2-05` | Borrow form, due display and reader loan history |
+| | `S2-06` | Transactional return-once endpoint and event history |
+| | `S2-07` | Boundaries, rollback, race, date and restart tests |
+| | `S2-08` | Stock/status/error feedback and UX fixes |
+| | `S2-09` | End-to-end demo smoke with issue log |
+| | `S2-10` | Review constraints and inventory consistency |
+| **S3 25/11–08/12** | `S3-01` | Renewal after policy approval + event/test coverage |
+| | `S3-02` | Overdue query/screen with historical loan fixtures |
+| | `S3-03` | Secure login/logout, persistent session, server-side RBAC |
+| | `S3-04` | Integrated auth/renew/overdue/regression tests |
+| **S4 09/12–22/12** | `S4-01` | Counts: total titles, borrow/return transactions, overdue loans |
+| | `S4-02` | UI quality, error/empty/responsive states |
+| | `S4-03` | Full smoke/regression; defect fixes and results |
+| | `S4-04` | README, schema/architecture notes, clean-machine handoff |
+| | `S4-05` | Deterministic demo dataset/script and screenshots |
+| | `S4-06` | Acceptance checklist, release candidate (no unapproved deploy) |
+
+**Sprint gate:** Feature/test/README work completes **the day before** each review: 09/11, 23/11, 07/12, 21/12; reviews 10/11, 24/11, 08/12, 22/12. The plan's sheet status does **not** prove any task is actually done. Inspect Git/CI before assigning or completing work.
 
 ## 9. Engineering completion criteria
 
@@ -422,7 +451,7 @@ A task is **Done** only when:
 - DB is consistent after failure; migrations work from a fresh test DB and preserve existing data on upgrade.
 - Relevant automated tests pass (include concrete command/output); no regression in previously shipped core flows.
 - Validation, server-side authorization as applicable, errors, accessibility and empty states are handled.
-- Changes include affected files, testing evidence, and migration/behavior notes.
+- PR contains WBS ID, changed files, testing evidence, migrations/behavior changes, and at least one reviewer approval before merge.
 - `README.md` and approved SRS/decision log are updated if behavior/contract changed.
 
 **Minimum CI jobs:** `npm ci` → `npm run lint` → `npm run test` → boot/migrate clean ephemeral DB → application smoke. Run Playwright where browser tooling is available; no fake pass status if skipped. Do not commit secrets, personal patron data, `.db` files containing real data, or `node_modules`.
@@ -433,11 +462,11 @@ A task is **Done** only when:
 
 ```text
 Read initial (1).md and inspect the current GoodLib repository before editing.
-Identify the requested feature, existing implementations, dependencies,
+Identify the requested WBS ID, existing implementations, dependencies,
 contract mismatches, and tests. Follow the fixed Express + EJS + SQLite
 architecture and preserve all domain invariants.
 
-Implement ONLY the requested feature and its acceptance criteria.
+Implement ONLY [WBS-ID]: [acceptance criteria].
 Add validation, negative/boundary tests, and required migrations.
 Do not implement speculative features from the slide deck or silently
 change the 10-loan / four-calendar-month rules.
@@ -445,6 +474,6 @@ change the 10-loan / four-calendar-month rules.
 Run the relevant checks and report the actual results. Return:
 1) files changed, 2) behavior and API/schema decisions,
 3) tests and outputs, 4) remaining risks/product decisions,
-5) a concise change summary.
+5) draft PR summary linked to [WBS-ID].
 No production DB changes, merges, deployments or destructive operations.
 ```
