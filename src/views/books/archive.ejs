@@ -1,0 +1,6 @@
+<%- include('../partials/header') %>
+<a class="back-link" href="/books">← Danh mục sách</a>
+<section class="confirmation-card"><span class="badge badge-danger">Xóa mềm</span><h1>Xóa sách khỏi danh mục?</h1><p><strong><%= book.code %> · <%= book.title %></strong></p><p>Sách sẽ bị ẩn khỏi danh sách. Bản ghi vẫn được giữ trong cơ sở dữ liệu.</p>
+<%- include('../partials/flash') %>
+<form method="post" action="/books/<%= book.id %>/archive" data-save-form><input type="hidden" name="confirm" value="yes" /><div class="form-actions"><a class="button button-secondary" href="/books">Hủy</a><button class="button button-danger" type="submit">Xác nhận xóa mềm</button></div></form></section>
+<%- include('../partials/footer') %>
