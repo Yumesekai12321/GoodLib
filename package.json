@@ -18,7 +18,8 @@
     "format:check": "prettier --check .",
     "test": "node --test tests/integration/*.test.js",
     "test:e2e": "playwright test",
-    "test:smoke": "node scripts/smoke.js"
+    "test:smoke": "node scripts/smoke.js",
+    "handoff": "node scripts/export-handoffs.js"
   },
   "dependencies": {
     "better-sqlite3": "13.0.3",

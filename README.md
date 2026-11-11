@@ -1,4 +1,4 @@
-# GoodLib
+# GoodLib · Nhóm 11
 
 Ứng dụng quản lý sách Sprint 1 bằng **Node.js 24 / Express / EJS / SQLite**.
 Giao diện tiếng Việt, chạy cục bộ tại <http://127.0.0.1:3000/books>.
@@ -26,8 +26,8 @@ Seed là thao tác riêng, thêm 6 sách mẫu tiếng Việt; chạy nhiều l�
 
 Giữ file `.npmrc` khi chia sẻ repo. better-sqlite3 13 đã kèm binary Node-API;
 cấu hình này bỏ dependency install hooks, tránh npm 11 gọi build native không cần
-thiết trên máy chưa có Windows SDK. Khi thêm dependency cần install hook,
-đánh giá lại cấu hình này và kiểm tra cài mới.
+thiết trên máy chưa có Windows SDK. Khi thêm dependency cần install hook, Sơn
+cần đánh giá lại cấu hình này và kiểm tra cài mới.
 
 ## Tính năng và quy tắc
 
@@ -81,7 +81,7 @@ Playwright dùng cổng **3107**, phải đang trống. Trên Linux mới cài d
 CI được cấu hình cho Windows và Ubuntu, Node 24. Việc có file workflow chưa có
 nghĩa là CI từ xa đã chạy. Bảng kết quả thực tế: [docs/test-cases.md](docs/test-cases.md).
 
-## Demo
+## Demo và bàn giao
 
 1. Chạy migration/seed, mở danh mục.
 2. Thêm `DEMO01`, tên `ĐƯỜNG ĐẾN THƯ VIỆN`, tổng `3`; kiểm tra số còn `3`.
@@ -91,12 +91,20 @@ nghĩa là CI từ xa đã chạy. Bảng kết quả thực tế: [docs/test-ca
 6. Dừng và chạy `npm start` lại. Sách đã xóa vẫn ẩn, các sách khác vẫn còn.
 7. Chạy `npm run test:smoke` để có bằng chứng tự động về bản ghi ẩn và số lượng sau restart.
 
+Phân công chính xác theo người, file/hàm và cách chia commit:
+[docs/contributions.md](docs/contributions.md).
+Chạy `npm run handoff` để xuất tám gói file theo người vào `artifacts/handoffs/`.
+Kế hoạch/chốt bản chạy: [docs/sprint-1-plan.md](docs/sprint-1-plan.md).
+Dương dùng [phiếu chạy máy khác](docs/second-machine-test.md), Đạt dùng
+[phiếu review kỹ thuật](docs/technical-review.md). Hai phiếu cần người phụ trách
+điền kết quả thật trước khi Hoàng chốt nghiệm thu.
+
 ## Cấu trúc và hợp đồng
 
 `routes → controllers → services → repositories → SQLite`; EJS chỉ hiển thị.
 [docs/contracts.md](docs/contracts.md) mô tả schema, endpoint và tên field.
 [docs/decisions.md](docs/decisions.md) ghi lựa chọn cho Sprint 1 và giới hạn phạm vi.
-Đặc tả kỹ thuật tại [initial (1).md](<initial (1).md>).
+Đặc tả gốc được giữ nguyên tại [initial (1).md](<initial (1).md>).
 
 ## Xử lý lỗi khi cài/chạy
 
@@ -104,7 +112,7 @@ nghĩa là CI từ xa đã chạy. Bảng kết quả thực tế: [docs/test-ca
   nếu tải binary không được, kiểm tra kết nối/proxy và hướng dẫn build chính thức
   của [better-sqlite3](https://github.com/WiseLibs/better-sqlite3/blob/master/docs/troubleshooting.md).
 - `EADDRINUSE`: dừng tiến trình đang dùng cổng hoặc đổi `PORT` trong `.env`.
-- `Stock audit failed`: chạy `npm run db:audit`, đọc báo cáo và giữ DB
+- `Stock audit failed`: chạy `npm run db:audit`, gửi kết quả cho Sơn/Hoàng; giữ DB
   để điều tra, không xóa hay chạy lệnh sửa dữ liệu tùy tiện.
 - `SQLITE_BUSY`: kiểm tra có công cụ/tiến trình khác giữ transaction; app chờ tối đa 5 giây.
 - Không tìm thấy sách không dấu: tìm đúng dấu tiếng Việt; Sprint 1 chưa yêu cầu bỏ dấu.
