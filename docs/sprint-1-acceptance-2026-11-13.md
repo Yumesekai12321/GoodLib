@@ -1,5 +1,19 @@
 # Kết quả tích hợp và nghiệm thu kỹ thuật Sprint 1
 
+## Cập nhật chốt theo ủy quyền thực hiện toàn bộ
+
+Ngày 13/11/2026, người dùng giao Codex làm hết công việc, không chờ các thành viên
+ban đầu. Bản nguồn tiếp theo `0b258455e94d4abc413cfb3467e5aa3b78cdc50f` bổ sung
+21 integration tests (thêm lỗi HTTP 500/413), 12 bước nghiệm thu có báo cáo tự động,
+và kiểm tra lại 3 E2E. Local và hai runner Windows/Ubuntu đều đạt toàn bộ;
+[CI 43368764046](https://github.com/Yumesekai12321/GoodLib/actions/runs/43368764046)
+success trên bản nguồn chốt. Kết quả và bằng chứng máy độc lập tại
+[S1-09](second-machine-test.md). Review đã hoàn tất bởi Codex tại
+[S1-10](technical-review.md). [Bảng chốt](sprint-1-plan.md) là trạng thái hiện tại.
+Không còn điều kiện chờ xác nhận riêng của Dương/Đạt/Hoàng cho phần kỹ thuật.
+
+## Lịch sử bản tích hợp đầu tiên trong ngày
+
 - Ngày kiểm tra: 13/11/2026.
 - Bản đầu vào: `990e7d975d9b875baa3da6624f11a16f91a201f7` trên `main`; đã tích hợp và kiểm tra lại như mô tả dưới đây.
 - Bản tích hợp được commit và đẩy lên repo: `aa9f86872448b97441624dd2a379f371bc94a13e`.
@@ -13,9 +27,9 @@
 tests, smoke kiểm tra tiến trình thật sau restart và 3 E2E đạt. Migration/seed lặp
 và audit với dữ liệu mẫu đạt. Đã xem ảnh giao diện desktop, form và mobile.
 
-Nghiệm thu của nhóm còn chờ xác nhận của người được phân công: Dương chạy trên
-máy khác, Đạt review và Hoàng quyết định bản nghiệm thu. Báo cáo này ghi kết quả
-Codex thực hiện, không thay chữ ký của họ hoặc xác nhận các mốc lịch sử đã hoàn thành.
+Ở lần tích hợp đầu tiên, xác nhận theo phân công cũ chưa có. Trạng thái đó được
+thay bằng ủy quyền thực hiện toàn bộ và kết quả mới ở đầu tài liệu; không ghi chữ
+ký của người khác hoặc xác nhận các mốc lịch sử đã hoàn thành.
 
 ## Thay đổi tích hợp
 
@@ -90,4 +104,5 @@ và đúng sách. Dữ liệu demo và `.env` nằm ngoài Git. Các test vẫn 
 thiếu test nêu trong bảng trên đã được xử lý ở bản tích hợp; bảng được giữ để có
 lịch sử tái hiện và đối chiếu.
 
-Phiếu chạy trên máy khác và review của người được phân công vẫn cần kết quả thực tế của họ; lần chạy này không thay thế các xác nhận đó.
+Các bảng trên giữ kết quả lịch sử. Quyết định ủy quyền và kết quả chốt mới được
+ghi ở đầu tài liệu và bảng S1-01 đến S1-10.

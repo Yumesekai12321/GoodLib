@@ -1,5 +1,26 @@
 # S1-07 / S1-08 · Test case và kết quả thực tế
 
+## Lần chốt đầy đủ theo ủy quyền ngày 13/11/2026
+
+**Bản chốt đã đạt trên cả hai máy độc lập Windows/Ubuntu**, qua
+[CI 43368764046](https://github.com/Yumesekai12321/GoodLib/actions/runs/43368764046).
+Mỗi máy đạt 21 integration tests, 12 acceptance steps, 3 E2E cùng smoke/lint/format.
+JSON và bảng thực tế từng bước được lưu trong [docs/evidence](evidence/).
+
+Người thực hiện: **Codex**. Bản nguồn: `0b258455e94d4abc413cfb3467e5aa3b78cdc50f`.
+Trên máy hiện tại: **21 integration tests, 12 acceptance steps, 3 E2E và smoke đều
+đạt**, lint/format đạt. Bộ acceptance chạy migration/seed/server/audit thật trên
+DB tạm, xuất đủ đầu vào, mong đợi, thực tế và Pass–Fail. Kết quả trên máy độc lập
+và bản JSON lưu trong repo được liên kết ở [báo cáo S1-09](second-machine-test.md).
+
+| ID mới   | Đầu vào                                                                 | Mong đợi                                         | Thực tế local                                                        | Pass/Fail |
+| -------- | ----------------------------------------------------------------------- | ------------------------------------------------ | -------------------------------------------------------------------- | --------- |
+| HTTP-02  | Trigger SQLite gây lỗi sau INSERT                                       | 500 chung, có log server, không lộ SQL, rollback | HTTP 500; không có marker SQL trong HTML; log 1 lần; DB không có row | Pass      |
+| HTTP-03  | Form tên dài 20.000 ký tự                                               | 413, không ghi DB                                | Thông báo biểu mẫu quá lớn; 0 row                                    | Pass      |
+| AC-01–12 | Kịch bản README → thêm → tìm → sửa → hủy/xác nhận xóa → restart → audit | 12 bước đạt, dữ liệu bền, số còn đúng            | 12/12; 6 sách active và MAY2 inactive, tổng/số còn 5                 | Pass      |
+
+Các bảng 19 test bên dưới là kết quả lịch sử; hai test HTTP mới nâng tổng lên 21.
+
 ## Lần tích hợp và kiểm tra lại ngày 13/11/2026
 
 Codex đã tích hợp ba nhánh giao diện/CRUD/test và khôi phục phần tìm kiếm từ lịch
@@ -86,10 +107,9 @@ install hooks, giữ binary của package. Cài mới và toàn bộ check sau �
 | Test tìm label exact không khớp dấu `*` trong text nhãn        | Dùng role + accessible name của textbox/spinbutton     | E2E 3/3 pass              |
 | Advisory minimatch ở dependency của ESLint 10                  | Override minimatch 11.0.5, giữ ESLint 10 còn hỗ trợ    | Lint chạy; npm audit sạch |
 
-## Các xác nhận còn chờ và giới hạn phạm vi
+## Phạm vi và nguồn xác nhận
 
-- Dương chạy trên **máy khác**: chờ điền `second-machine-test.md`.
-- Đạt review/phê duyệt: chờ `technical-review.md`.
+- Codex đã nhận thực hiện S1-09/S1-10 theo ủy quyền mới; kết quả trong `second-machine-test.md` và `technical-review.md`, không ký thay Dương/Đạt.
 - CI GitHub Windows/Ubuntu: đã success tại `aa9f868`, [run 43366981541](https://github.com/Yumesekai12321/GoodLib/actions/runs/43366981541), ngày 13/11/2026.
 - Yêu cầu tìm dưới 2 giây: đã có benchmark ngày 13/11 với phạm vi và môi trường nêu trên.
 - Tính năng Sprint 2 trở đi: chỉ kiểm tra điểm nối bằng fixture; chưa triển khai.

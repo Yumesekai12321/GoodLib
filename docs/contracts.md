@@ -65,7 +65,8 @@ View model dùng `pageTitle`, `flash`, `values`, `errors`, `id`, `books`,
 SQLite `instr()` so khớp chuỗi đã chuẩn hóa, không dựa `NOCASE` cho tiếng Việt.
 Mã đã là ASCII nên có thể `lower(code)`. Không tìm tác giả/thể loại; không bỏ dấu,
 không sửa chính tả. `%`/`_` không có tác dụng wildcard. Tìm chứa có thể scan toàn bảng;
-chưa có đo p95 trên dữ liệu lớn để khẳng định yêu cầu hiệu năng dưới 2 giây.
+benchmark 10.000 sách đã được ghi trong báo cáo nghiệm thu ngày 13/11/2026,
+với p95 HTTP loopback khoảng 24 ms ở concurrency 1; không suy rộng cho tải khác.
 
 Audit chỉ đọc toàn bộ sách, kể cả inactive, kiểm tra:
 `available_quantity = total_quantity - openLoanCount`. Startup từ chối chạy nếu

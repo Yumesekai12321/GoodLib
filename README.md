@@ -93,7 +93,9 @@ nghĩa là CI từ xa đã chạy. Bảng kết quả thực tế: [docs/test-ca
 Phép đo gồm truy vấn/SSR và tải hết HTML trên loopback, một request tại một thời
 điểm; không đo thời gian render trình duyệt hoặc mạng ngoài.
 
-Kết quả tích hợp, nghiệm thu và các xác nhận còn chờ được ghi tại
+Trạng thái từng đầu việc và Definition of Done nằm tại
+[bảng chốt Sprint 1](docs/sprint-1-plan.md). Nội dung báo cáo và kịch bản demo:
+[báo cáo Sprint 1](docs/sprint-1-report.md). Lịch sử tích hợp và kiểm tra:
 [báo cáo ngày 13/11/2026](docs/sprint-1-acceptance-2026-11-13.md).
 
 ## Demo và bàn giao
@@ -111,9 +113,10 @@ Phân công chính xác theo người, file/hàm và cách chia commit:
 [docs/contributions.md](docs/contributions.md).
 Chạy `npm run handoff` để xuất tám gói file theo người vào `artifacts/handoffs/`.
 Kế hoạch/chốt bản chạy: [docs/sprint-1-plan.md](docs/sprint-1-plan.md).
-Dương dùng [phiếu chạy máy khác](docs/second-machine-test.md), Đạt dùng
-[phiếu review kỹ thuật](docs/technical-review.md). Hai phiếu cần người phụ trách
-điền kết quả thật trước khi Hoàng chốt nghiệm thu.
+Theo ủy quyền ngày 13/11, Codex thực hiện toàn bộ phần còn lại, gồm
+[kiểm tra máy khác](docs/second-machine-test.md) và
+[review kỹ thuật](docs/technical-review.md). Kết quả ghi đúng người thực hiện,
+không giữ bước chờ xác nhận của thành viên được phân công ban đầu.
 
 ## Cấu trúc và hợp đồng
 

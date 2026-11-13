@@ -1,5 +1,15 @@
 # Phân công Sprint 1 và cách đóng góp
 
+## Thực hiện theo ủy quyền ngày 13/11/2026
+
+Người dùng đã giao Codex hoàn tất toàn bộ đầu việc Sprint 1, gồm kiểm tra trên
+máy độc lập, review và lập báo cáo. Bảng phân công bên dưới là phân công ban đầu;
+các phần được Codex hoàn thiện ghi Codex là người thực hiện. Kết quả không còn
+giữ điều kiện chờ từng thành viên xác nhận; xem [bảng chốt](sprint-1-plan.md) và
+[quyết định S1-D14](decisions.md). Giữ nguyên lịch sử/tác giả các commit đã có.
+
+## Phân công ban đầu
+
 Nguồn phân công: gói `01-hoang.zip`. Cập nhật ngày **09/11/2026**, giờ Việt Nam.
 Có 8 người; Tiến nhận S1-04/S1-05, Sơn nhận S1-02/S1-08. Bản triển khai có trợ giúp
 bằng AI; mỗi người đọc, kiểm tra và chịu trách nhiệm phần mình trước khi commit.
@@ -21,7 +31,7 @@ Phân công dưới đây không phải bằng chứng tác giả của những 
 | S1-10 | Nguyễn Trọng Đạt | `docs/technical-review.md`: điền phiếu review thật, file/dòng, vấn đề và người cần sửa                                                                                                                               |
 
 `docs/handoff-map.json` giữ danh mục đường dẫn tương đối theo người nhận.
-Danh mục mô tả phạm vi bàn giao; hai phiếu S1-09/S1-10 đã có nhưng còn chờ xác nhận của người phụ trách.
+Danh mục mô tả phạm vi bàn giao theo phân công gốc; báo cáo S1-09/S1-10 hiện do Codex thực hiện theo ủy quyền mới.
 Chạy `npm run handoff` để xuất tám gói theo danh mục vào `artifacts/handoffs/`.
 Mỗi gói riêng chỉ là một phần dự án, cần clone đầy đủ để chạy ứng dụng.
 

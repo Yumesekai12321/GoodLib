@@ -10,7 +10,9 @@
       "docs/contracts.md",
       "docs/sprint-1-plan.md",
       "docs/contributions.md",
-      "docs/handoff-map.json"
+      "docs/handoff-map.json",
+      "docs/sprint-1-report.md",
+      "docs/sprint-1-acceptance-2026-11-13.md"
     ]
   },
   {
@@ -93,7 +95,7 @@
     "folder": "07-duong",
     "name": "Nguyễn Nam Dương",
     "tasks": "S1-09",
-    "files": ["docs/second-machine-test.md"]
+    "files": ["docs/second-machine-test.md", "docs/evidence"]
   },
   {
     "folder": "08-dat",
