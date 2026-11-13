@@ -33,3 +33,15 @@ Nguồn package: [better-sqlite3 13.0.3](https://github.com/WiseLibs/better-sqli
 Các quyết định chưa cần cho Sprint 1: gia hạn, phạt, phân quyền chi tiết, đặt chỗ.
 Không triển khai các phần đó trong bản này. Quy tắc 10 lượt mượn và hạn 4 tháng
 trong baseline giữ cho S2, chưa được coi là tính năng đã hoàn thành.
+
+## S1-D14 · Ủy quyền hoàn tất ngày 13/11/2026
+
+Người dùng yêu cầu Codex thực hiện toàn bộ đầu việc Sprint 1 còn lại và commit
+lên GitHub, sau đó xác nhận: **“không cần chờ ai làm gì nữa cả, bạn làm hết luôn đi”**.
+Codex trực tiếp thực hiện kiểm tra trên các máy GitHub-hosted Windows/Ubuntu độc
+lập với máy local, review kỹ thuật và lập báo cáo chốt theo bằng chứng thực tế.
+Phân công ban đầu được giữ như lịch sử; kết quả mới ghi Codex là người thực hiện.
+Không còn điều kiện chờ Dương/Đạt/Hoàng xác nhận để chốt phần kỹ thuật.
+
+Mốc 31/10, 04/11, 09/11 và báo cáo cô lúc 06:45 ngày 10/11 là lịch dự kiến đã qua.
+Không ghi lùi ngày hoặc xác nhận một buổi báo cáo đã diễn ra khi không có bằng chứng.

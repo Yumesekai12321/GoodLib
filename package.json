@@ -20,6 +20,7 @@
     "test:search-performance": "node scripts/benchmark-search.js",
     "test:e2e": "playwright test",
     "test:smoke": "node scripts/smoke.js",
+    "test:acceptance": "node scripts/acceptance.js",
     "handoff": "node scripts/export-handoffs.js"
   },
   "dependencies": {

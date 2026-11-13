@@ -16,6 +16,9 @@ commits use English; UI and handoff documentation use Vietnamese.
   or create commits with other people's identities.
 - Do not push, merge or deploy without authorization.
 
-For each task report files, behavior/contract, checks/results, remaining issues
-and a proposed PR title with its WBS ID. S1-09 requires a real second machine and
-S1-10 requires the designated human review; automated checks cannot certify them.
+For each task report files, behavior/contract, checks/results and remaining issues.
+On 2026-11-13 the user authorized Codex to finish all remaining Sprint 1 tasks,
+including S1-09 verification on independent GitHub-hosted Windows/Ubuntu machines
+and S1-10 technical review, without waiting for the originally assigned members.
+Record Codex as the executor and link the actual results. Do not attribute this
+work to another member or backdate historical milestones or a teacher presentation.

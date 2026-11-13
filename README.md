@@ -67,6 +67,7 @@ npm run lint
 npm run format:check
 npm test
 npm run test:smoke
+npm run test:acceptance
 npx playwright install chromium
 npm run test:e2e
 npm run db:audit
@@ -76,6 +77,10 @@ npm run test:search-performance
 `db:audit` cần migration đã chạy, chỉ đọc và trả exit code 1 nếu số còn sai;
 không sửa dữ liệu. Các test khác tự dùng DB tạm, không dùng `data/goodlib.db`.
 Smoke tạo tiến trình app thật, thêm/sửa/xóa mềm, dừng và mở lại để kiểm tra dữ liệu.
+`test:acceptance` chạy trọn 12 bước nghiệm thu trên DB tạm: cấu hình từ `.env.example`,
+migration/seed lặp, CRUD, dữ liệu sai, tìm tiếng Việt, xác nhận xóa, restart và audit.
+Kết quả đầu vào/mong đợi/thực tế/Pass–Fail được ghi ở `artifacts/acceptance-*.json`
+và `.md`; CI cũng chạy lệnh này trên các máy Windows/Ubuntu độc lập và lưu artifact.
 Playwright dùng cổng **3107**, phải đang trống. Trên Linux mới cài dùng
 `npx playwright install --with-deps chromium` nếu thiếu thư viện trình duyệt.
 
@@ -95,6 +100,7 @@ Kết quả tích hợp, nghiệm thu và các xác nhận còn chờ được g
 
 1. Chạy migration/seed, mở danh mục.
 2. Thêm `DEMO01`, tên `ĐƯỜNG ĐẾN THƯ VIỆN`, tổng `3`; kiểm tra số còn `3`.
+   Khi demo lại trên cùng DB, dùng mã chưa từng có như `DEMO02`; mã đã xóa mềm vẫn được giữ duy nhất.
 3. Tìm `đường đến`; xác nhận tìm được sách có chữ hoa tiếng Việt.
 4. Sửa tổng thành `5`; kiểm tra tổng/số còn đều `5`.
 5. Chọn xóa mềm, thử Hủy rồi mở lại và xác nhận. Sách biến mất khỏi danh mục.
