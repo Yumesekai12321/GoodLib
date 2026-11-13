@@ -1,6 +1,6 @@
 # GoodLib
 
-Read `initial (1).md`, `docs/decisions.md` and `docs/contracts.md` before changes.
+Read `initial (1).md`, `README.md` and `docs/sprint-1-report.md` before changes.
 The user-approved current scope is Sprint 1 only. Source code, identifiers and
 commits use English; UI and handoff documentation use Vietnamese.
 
@@ -12,8 +12,8 @@ commits use English; UI and handoff documentation use Vietnamese.
 - Keep services transactional, SQL in repositories, and templates escaped.
 - Use isolated databases for tests. Never reset a real database.
 - Run lint, format check, integration and browser tests. Report actual evidence.
-- Keep task ownership in `docs/contributions.md`. Do not impersonate contributors
-  or create commits with other people's identities.
+- Preserve existing commit authorship. Do not impersonate contributors or create
+  commits with other people's identities.
 - Do not push, merge or deploy without authorization.
 
 For each task report files, behavior/contract, checks/results and remaining issues.

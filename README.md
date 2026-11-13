@@ -84,8 +84,8 @@ và `.md`; CI cũng chạy lệnh này trên các máy Windows/Ubuntu độc l�
 Playwright dùng cổng **3107**, phải đang trống. Trên Linux mới cài dùng
 `npx playwright install --with-deps chromium` nếu thiếu thư viện trình duyệt.
 
-CI được cấu hình cho Windows và Ubuntu, Node 24. Việc có file workflow chưa có
-nghĩa là CI từ xa đã chạy. Bảng kết quả thực tế: [docs/test-cases.md](docs/test-cases.md).
+CI kiểm tra Windows và Ubuntu với Node 24. Kết quả thực tế và liên kết run được
+ghi trong [báo cáo Sprint 1](docs/sprint-1-report.md).
 
 `npm test` báo lỗi nếu thư mục test integration bị thiếu hoặc không có file test.
 `test:search-performance` tạo DB tạm có 10.000 đầu sách, đo 140 phản hồi HTTP sau
@@ -93,10 +93,8 @@ nghĩa là CI từ xa đã chạy. Bảng kết quả thực tế: [docs/test-ca
 Phép đo gồm truy vấn/SSR và tải hết HTML trên loopback, một request tại một thời
 điểm; không đo thời gian render trình duyệt hoặc mạng ngoài.
 
-Trạng thái từng đầu việc và Definition of Done nằm tại
-[bảng chốt Sprint 1](docs/sprint-1-plan.md). Nội dung báo cáo và kịch bản demo:
-[báo cáo Sprint 1](docs/sprint-1-report.md). Lịch sử tích hợp và kiểm tra:
-[báo cáo ngày 13/11/2026](docs/sprint-1-acceptance-2026-11-13.md).
+Kết quả từng đầu việc, nghiệm thu và kịch bản demo nằm trong tài liệu cuối cùng:
+[báo cáo Sprint 1](docs/sprint-1-report.md).
 
 ## Demo và bàn giao
 
@@ -109,20 +107,14 @@ Trạng thái từng đầu việc và Definition of Done nằm tại
 6. Dừng và chạy `npm start` lại. Sách đã xóa vẫn ẩn, các sách khác vẫn còn.
 7. Chạy `npm run test:smoke` để có bằng chứng tự động về bản ghi ẩn và số lượng sau restart.
 
-Phân công chính xác theo người, file/hàm và cách chia commit:
-[docs/contributions.md](docs/contributions.md).
 Chạy `npm run handoff` để xuất tám gói file theo người vào `artifacts/handoffs/`.
-Kế hoạch/chốt bản chạy: [docs/sprint-1-plan.md](docs/sprint-1-plan.md).
-Theo ủy quyền ngày 13/11, Codex thực hiện toàn bộ phần còn lại, gồm
-[kiểm tra máy khác](docs/second-machine-test.md) và
-[review kỹ thuật](docs/technical-review.md). Kết quả ghi đúng người thực hiện,
-không giữ bước chờ xác nhận của thành viên được phân công ban đầu.
+Cấu hình xuất gói nằm tại `scripts/handoff-map.json`. Theo ủy quyền ngày 13/11,
+Codex đã hoàn tất kiểm tra máy khác và review kỹ thuật; xem báo cáo cuối cùng.
 
 ## Cấu trúc và hợp đồng
 
 `routes → controllers → services → repositories → SQLite`; EJS chỉ hiển thị.
-[docs/contracts.md](docs/contracts.md) mô tả schema, endpoint và tên field.
-[docs/decisions.md](docs/decisions.md) ghi lựa chọn cho Sprint 1 và giới hạn phạm vi.
+Quy tắc dữ liệu và giới hạn Sprint 1 nằm trong phần tính năng ở trên và báo cáo cuối cùng.
 Đặc tả gốc được giữ nguyên tại [initial (1).md](<initial (1).md>).
 
 ## Xử lý lỗi khi cài/chạy

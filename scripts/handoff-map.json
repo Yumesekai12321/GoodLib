@@ -3,17 +3,7 @@
     "folder": "01-hoang",
     "name": "Đinh Huy Hoàng",
     "tasks": "S1-01",
-    "files": [
-      "AGENTS.md",
-      "initial (1).md",
-      "docs/decisions.md",
-      "docs/contracts.md",
-      "docs/sprint-1-plan.md",
-      "docs/contributions.md",
-      "docs/handoff-map.json",
-      "docs/sprint-1-report.md",
-      "docs/sprint-1-acceptance-2026-11-13.md"
-    ]
+    "files": ["AGENTS.md", "initial (1).md", "docs/sprint-1-report.md"]
   },
   {
     "folder": "02-son",
@@ -89,18 +79,18 @@
     "folder": "06-huy",
     "name": "Đàm Quang Huy",
     "tasks": "S1-07",
-    "files": ["tests", "playwright.config.js", "docs/test-cases.md"]
+    "files": ["tests", "playwright.config.js", "docs/sprint-1-report.md"]
   },
   {
     "folder": "07-duong",
     "name": "Nguyễn Nam Dương",
     "tasks": "S1-09",
-    "files": ["docs/second-machine-test.md", "docs/evidence"]
+    "files": ["docs/sprint-1-report.md"]
   },
   {
     "folder": "08-dat",
     "name": "Nguyễn Trọng Đạt",
     "tasks": "S1-10",
-    "files": ["docs/technical-review.md"]
+    "files": ["docs/sprint-1-report.md"]
   }
 ]

@@ -23,8 +23,28 @@ sau khi dừng rồi khởi động lại; không còn lỗi chặn demo trong p
 Bản nguồn chốt: `0b258455e94d4abc413cfb3467e5aa3b78cdc50f`.
 [CI 43368764046](https://github.com/Yumesekai12321/GoodLib/actions/runs/43368764046)
 hoàn thành success trên cả hai hệ điều hành. Review kỹ thuật đã hoàn tất.
-Chi tiết từng đầu việc ở [bảng chốt](sprint-1-plan.md), kết quả máy độc lập và bản
-JSON/Markdown thực tế ở [báo cáo máy khác](second-machine-test.md).
+Bảng kết quả từng bước và ảnh trình duyệt nằm trong artifact của run CI trên.
+Chạy `npm run test:acceptance` để tạo lại bảng JSON/Markdown trong `artifacts/`.
+
+## Đối chiếu đầu việc và nghiệm thu
+
+| WBS   | Kết quả cuối cùng                                                                                                            |
+| ----- | ---------------------------------------------------------------------------------------------------------------------------- |
+| S1-01 | Đã chốt field, quy tắc số còn, phạm vi và kế hoạch; ghi ngày hoàn tất thực tế                                                |
+| S1-02 | GitHub, Node/Express/EJS/SQLite, migration, dữ liệu mẫu và README chạy được                                                  |
+| S1-03 | Danh sách đọc SQLite, phân trang, nút thêm/sửa/xóa và ô tìm hoạt động                                                        |
+| S1-04 | Form lưu DB; thiếu mã/tên, mã trùng, năm/tổng sai bị từ chối                                                                 |
+| S1-05 | Sửa tổng trong transaction; số còn tự tính; xóa mềm có xác nhận và giữ dữ liệu                                               |
+| S1-06 | Tìm chứa mã/tên, NFC/hoa thường tiếng Việt ở lớp ứng dụng, giữ dấu                                                           |
+| S1-07 | Đủ ca bắt buộc và bảng đầu vào/mong đợi/thực tế/Pass–Fail; demo chạy được                                                    |
+| S1-08 | Đã tích hợp, sửa lỗi chặn, kiểm tra restart và hoàn thiện README                                                             |
+| S1-09 | Checkout sạch trên hai runner Windows/Ubuntu: 12/12 bước đạt ở mỗi máy                                                       |
+| S1-10 | Codex đã review luồng chính, validation, transaction, xử lý lỗi và cách chạy; không còn lỗi chặn demo trong phạm vi kiểm tra |
+
+Definition of Done đạt: code/test/README đã tích hợp; ca bắt buộc đạt; không có lỗi
+chặn demo trong các luồng đã kiểm tra; chạy được trên máy độc lập. Kiểm thử gồm
+mã trùng cả sau xóa mềm, năm/số lượng sai, Unicode, rollback, dữ liệu sau restart,
+fixture lượt chưa trả, phản hồi lỗi 500 không lộ SQL và form quá lớn trả 413.
 
 Benchmark đã đo trước đó trên 10.000 sách: p95 HTTP loopback khoảng 24 ms với
 concurrency 1; đây là kết quả theo môi trường đã ghi, không suy rộng sang nhiều

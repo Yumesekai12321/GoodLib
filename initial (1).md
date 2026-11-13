@@ -73,7 +73,7 @@ Browser → Express routes/middleware → controllers → services → repositor
 | `BR-06` | Two authenticated roles; reader role only if time permits | Three roles including reader portal | Implement `ADMIN` and `LIBRARIAN`; readers are data records, not login users. |
 | `BR-07` | Search contains code/title, case-insensitive; diacritic removal not required | Search also by author/ISBN | Deliver code/title search first. |
 
-**Product decisions still missing:** exact renewal eligibility and duration; role-specific permissions beyond minimum; whether/when to add fines/reservations. Log decisions in `docs/decisions.md` before implementing. Do not silently decide them in code.
+**Product decisions still missing:** exact renewal eligibility and duration; role-specific permissions beyond minimum; whether/when to add fines/reservations. Record approved decisions in `docs/sprint-1-report.md` before implementing. Do not silently decide them in code.
 
 ## 2. Data contract (SQLite)
 
@@ -337,8 +337,7 @@ GoodLib/
 ├── eslint.config.js
 ├── .github/workflows/ci.yml
 ├── docs/
-│   ├── decisions.md             # Approved business-rule decisions
-│   └── srs.md                   # Updated acceptance criteria (if maintained)
+│   └── sprint-1-report.md       # Final Sprint 1 report and accepted scope
 ├── db/
 │   ├── migrations/001_books.sql
 │   ├── migrations/002_readers_loans.sql
