@@ -1,5 +1,23 @@
 # S1-10 · Nguyễn Trọng Đạt · Review kỹ thuật
 
+## Rà soát hỗ trợ của Codex ngày 13/11/2026
+
+Bản `main` tại `990e7d9` không chạy được do thiếu module và không có bộ test.
+Đã tích hợp nhánh UI/CRUD/test, khôi phục tìm kiếm và tài liệu từ `940f231`, sửa
+định dạng CSS, thêm chốt lỗi khi thiếu file integration test.
+
+Đã đối chiếu validation server và HTML escaping; mã duy nhất kể cả inactive;
+`available_quantity` bị từ chối ở POST; transaction `immediate()` bao quanh sửa
+tổng và xóa mềm; query tìm kiếm dùng bind, NFC/lowercase tiếng Việt và `instr()`.
+19 integration tests kiểm tra cả rollback, lỗi dữ liệu, persistence, xóa khi có
+mượn bằng fixture; 3 E2E và smoke đạt. Chưa phát hiện lỗi chặn trong các luồng đã
+kiểm tra. Chi tiết bằng chứng và phạm vi tại
+[báo cáo nghiệm thu](sprint-1-acceptance-2026-11-13.md).
+
+Đây là rà soát hỗ trợ của Codex; phần xác nhận của Đạt bên dưới vẫn chờ chính Đạt điền.
+
+## Phiếu xác nhận của Đạt
+
 **Trạng thái: CHỜ ĐẠT REVIEW.** Checklist được chuẩn bị để review ngắn và gửi
 phản hồi cho chủ sở hữu. Đây không phải phê duyệt hay kết quả review của Đạt.
 Đạt không gánh phần triển khai; người sở hữu tự sửa lỗi được phản hồi.

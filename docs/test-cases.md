@@ -1,5 +1,24 @@
 # S1-07 / S1-08 · Test case và kết quả thực tế
 
+## Lần tích hợp và kiểm tra lại ngày 13/11/2026
+
+Codex đã tích hợp ba nhánh giao diện/CRUD/test và khôi phục phần tìm kiếm từ lịch
+sử Git. Trên Windows, Node 24.19.0, npm 11.17.0: **19 integration tests và 3 E2E
+đều đạt**, smoke kiểm tra tiến trình thật sau restart đạt. Đã xem ảnh desktop,
+form và mobile do Playwright tạo. Migration hai lần giữ một ledger; seed hai lần
+cho kết quả thêm 6 rồi 0 sách, audit sạch trên 6 sách.
+
+`npm test` đã có chốt từ chối báo thành công khi không có file test. Đã kiểm tra
+nhánh lỗi này trên bản sao runner với thư mục test rỗng.
+
+Benchmark tìm kiếm: 10.000 sách, 7 query, 140 request sau 14 warmup, concurrency 1;
+p95 HTTP tổng hợp **24,01 ms**, p95 cao nhất theo query **27 ms** trên Intel
+Core i7-9750H, Windows 10.0.26200. Không suy rộng thành kết quả mạng ngoài hoặc
+render trình duyệt. Chi tiết bản chốt và CI tại
+[báo cáo nghiệm thu](sprint-1-acceptance-2026-11-13.md).
+
+## Kết quả lịch sử ngày 08/11/2026
+
 Người sở hữu test: **Đàm Quang Huy**. Tích hợp/khởi động: **Nguyễn Văn Sơn**.
 Các test được chạy bằng công cụ tại workspace ngày **08/11/2026**; đây không phải
 chữ ký xác nhận Huy, Sơn, Dương hoặc Đạt đã tự chạy.
@@ -71,6 +90,6 @@ install hooks, giữ binary của package. Cài mới và toàn bộ check sau �
 
 - Dương chạy trên **máy khác**: chờ điền `second-machine-test.md`.
 - Đạt review/phê duyệt: chờ `technical-review.md`.
-- CI GitHub Windows/Ubuntu: đã cấu hình, chưa chạy từ xa vì chưa có remote/push.
-- Yêu cầu tìm dưới 2 giây: chưa benchmark p95/dataset/hardware, không tuyên bố đạt.
+- CI GitHub Windows/Ubuntu: xem trạng thái mới trong báo cáo nghiệm thu ngày 13/11; phần dưới đây là kết quả lịch sử.
+- Yêu cầu tìm dưới 2 giây: đã có benchmark ngày 13/11 với phạm vi và môi trường nêu trên.
 - Tính năng Sprint 2 trở đi: chỉ kiểm tra điểm nối bằng fixture; chưa triển khai.

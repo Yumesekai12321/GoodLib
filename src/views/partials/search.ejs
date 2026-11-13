@@ -1,0 +1,8 @@
+<form class="search-form" action="/books" method="get" role="search">
+  <div class="search-control">
+    <label for="search">Tìm sách theo mã hoặc tên</label>
+    <input id="search" type="search" name="q" value="<%= q %>" maxlength="200" placeholder="Ví dụ: VN001 hoặc Dế Mèn" />
+  </div>
+  <button type="submit" class="button button-secondary">Tìm kiếm</button>
+  <% if (q) { %><a class="clear-search" href="/books">Xóa bộ lọc</a><% } %>
+</form>

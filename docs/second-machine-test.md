@@ -1,5 +1,16 @@
 # S1-09 · Nguyễn Nam Dương · Chạy trên máy khác
 
+## Bằng chứng hỗ trợ ngày 13/11/2026
+
+Codex đã kiểm tra trên máy Windows hiện tại: cài dependency, migration/seed lặp,
+audit trên dữ liệu mẫu, 19 integration tests, smoke và 3 E2E đều đạt sau tích hợp.
+Môi trường và bản được kiểm tra ghi tại
+[báo cáo nghiệm thu](sprint-1-acceptance-2026-11-13.md).
+Đây chưa phải kết quả chạy của Dương trên một máy khác; phiếu xác nhận bên dưới
+giữ chờ người phụ trách. Kết quả CI Windows/Ubuntu được ghi riêng trong báo cáo.
+
+## Phiếu xác nhận của Dương
+
 **Trạng thái: CHƯA CHẠY TRÊN MÁY KHÁC.** Đây là phiếu bàn giao, không phải bằng
 chứng Dương đã hoàn thành. Dương chạy theo README trên máy khác, điền kết quả thật,
 commit phiếu này và gửi Hoàng **trước khi chốt 09/11/2026**.

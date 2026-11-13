@@ -70,6 +70,7 @@ npm run test:smoke
 npx playwright install chromium
 npm run test:e2e
 npm run db:audit
+npm run test:search-performance
 ```
 
 `db:audit` cần migration đã chạy, chỉ đọc và trả exit code 1 nếu số còn sai;
@@ -80,6 +81,15 @@ Playwright dùng cổng **3107**, phải đang trống. Trên Linux mới cài d
 
 CI được cấu hình cho Windows và Ubuntu, Node 24. Việc có file workflow chưa có
 nghĩa là CI từ xa đã chạy. Bảng kết quả thực tế: [docs/test-cases.md](docs/test-cases.md).
+
+`npm test` báo lỗi nếu thư mục test integration bị thiếu hoặc không có file test.
+`test:search-performance` tạo DB tạm có 10.000 đầu sách, đo 140 phản hồi HTTP sau
+14 lượt làm nóng, báo p95 theo từng query và thất bại nếu p95 từ 2 giây trở lên.
+Phép đo gồm truy vấn/SSR và tải hết HTML trên loopback, một request tại một thời
+điểm; không đo thời gian render trình duyệt hoặc mạng ngoài.
+
+Kết quả tích hợp, nghiệm thu và các xác nhận còn chờ được ghi tại
+[báo cáo ngày 13/11/2026](docs/sprint-1-acceptance-2026-11-13.md).
 
 ## Demo và bàn giao
 

@@ -16,7 +16,8 @@
     "lint": "eslint .",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "test": "node --test tests/integration/*.test.js",
+    "test": "node scripts/test.js",
+    "test:search-performance": "node scripts/benchmark-search.js",
     "test:e2e": "playwright test",
     "test:smoke": "node scripts/smoke.js",
     "handoff": "node scripts/export-handoffs.js"

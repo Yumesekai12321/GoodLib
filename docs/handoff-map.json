@@ -1,0 +1,104 @@
+[
+  {
+    "folder": "01-hoang",
+    "name": "Đinh Huy Hoàng",
+    "tasks": "S1-01",
+    "files": [
+      "AGENTS.md",
+      "initial (1).md",
+      "docs/decisions.md",
+      "docs/contracts.md",
+      "docs/sprint-1-plan.md",
+      "docs/contributions.md",
+      "docs/handoff-map.json"
+    ]
+  },
+  {
+    "folder": "02-son",
+    "name": "Nguyễn Văn Sơn",
+    "tasks": "S1-02, S1-08",
+    "files": [
+      "package.json",
+      "package-lock.json",
+      ".nvmrc",
+      ".npmrc",
+      ".env.example",
+      ".gitignore",
+      ".gitattributes",
+      ".prettierrc.json",
+      ".prettierignore",
+      "eslint.config.js",
+      "README.md",
+      "src/config",
+      "src/db",
+      "db",
+      "scripts",
+      "src/repositories/inventoryRepository.js",
+      "src/services/stockAudit.js",
+      "src/app.js",
+      "src/server.js",
+      "src/services/bookService.js",
+      "src/middleware",
+      "src/views/errors",
+      ".github"
+    ]
+  },
+  {
+    "folder": "03-khanh",
+    "name": "Hà Quốc Khánh",
+    "tasks": "S1-03",
+    "files": [
+      "src/views/books/index.ejs",
+      "src/views/partials/header.ejs",
+      "src/views/partials/footer.ejs",
+      "src/views/partials/flash.ejs",
+      "src/public"
+    ]
+  },
+  {
+    "folder": "04-tien",
+    "name": "Nguyễn Ngọc Tiến",
+    "tasks": "S1-04, S1-05",
+    "files": [
+      "src/services/createBook.js",
+      "src/services/updateBook.js",
+      "src/services/archiveBook.js",
+      "src/validators",
+      "src/repositories/bookRepository.js",
+      "src/controllers",
+      "src/routes",
+      "src/utils/errors.js",
+      "src/views/books/form.ejs",
+      "src/views/books/archive.ejs",
+      "src/views/partials/formField.ejs"
+    ]
+  },
+  {
+    "folder": "05-minh",
+    "name": "Bùi Quang Minh",
+    "tasks": "S1-06",
+    "files": [
+      "src/utils/normalize.js",
+      "src/repositories/bookSearchRepository.js",
+      "src/views/partials/search.ejs"
+    ]
+  },
+  {
+    "folder": "06-huy",
+    "name": "Đàm Quang Huy",
+    "tasks": "S1-07",
+    "files": ["tests", "playwright.config.js", "docs/test-cases.md"]
+  },
+  {
+    "folder": "07-duong",
+    "name": "Nguyễn Nam Dương",
+    "tasks": "S1-09",
+    "files": ["docs/second-machine-test.md"]
+  },
+  {
+    "folder": "08-dat",
+    "name": "Nguyễn Trọng Đạt",
+    "tasks": "S1-10",
+    "files": ["docs/technical-review.md"]
+  }
+]
