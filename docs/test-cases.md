@@ -86,10 +86,10 @@ install hooks, giữ binary của package. Cài mới và toàn bộ check sau �
 | Test tìm label exact không khớp dấu `*` trong text nhãn        | Dùng role + accessible name của textbox/spinbutton     | E2E 3/3 pass              |
 | Advisory minimatch ở dependency của ESLint 10                  | Override minimatch 11.0.5, giữ ESLint 10 còn hỗ trợ    | Lint chạy; npm audit sạch |
 
-## Chưa thể xác nhận bằng môi trường hiện tại
+## Các xác nhận còn chờ và giới hạn phạm vi
 
 - Dương chạy trên **máy khác**: chờ điền `second-machine-test.md`.
 - Đạt review/phê duyệt: chờ `technical-review.md`.
-- CI GitHub Windows/Ubuntu: xem trạng thái mới trong báo cáo nghiệm thu ngày 13/11; phần dưới đây là kết quả lịch sử.
+- CI GitHub Windows/Ubuntu: đã success tại `aa9f868`, [run 43366981541](https://github.com/Yumesekai12321/GoodLib/actions/runs/43366981541), ngày 13/11/2026.
 - Yêu cầu tìm dưới 2 giây: đã có benchmark ngày 13/11 với phạm vi và môi trường nêu trên.
 - Tính năng Sprint 2 trở đi: chỉ kiểm tra điểm nối bằng fixture; chưa triển khai.

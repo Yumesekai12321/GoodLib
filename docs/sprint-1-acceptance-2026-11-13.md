@@ -2,6 +2,7 @@
 
 - Ngày kiểm tra: 13/11/2026.
 - Bản đầu vào: `990e7d975d9b875baa3da6624f11a16f91a201f7` trên `main`; đã tích hợp và kiểm tra lại như mô tả dưới đây.
+- Bản tích hợp được commit và đẩy lên repo: `aa9f86872448b97441624dd2a379f371bc94a13e`.
 - Môi trường: Windows NT 10.0.26200.0, Node.js 24.19.0, npm 11.17.0.
 - Người thực hiện: Codex trên máy hiện tại. Đây không phải kết quả chạy trên máy khác của Dương hoặc phê duyệt kỹ thuật của Đạt.
 - Các test dùng cơ sở dữ liệu tạm riêng, không dùng dữ liệu ứng dụng hiện có.
@@ -49,8 +50,25 @@ Codex thực hiện, không thay chữ ký của họ hoặc xác nhận các m�
 
 ## Kiểm tra môi trường sạch qua CI
 
-Chờ chạy workflow của bản tích hợp trên GitHub Actions Windows và Ubuntu. Kết quả
-và liên kết run sẽ được cập nhật sau khi quan sát trạng thái thực tế.
+Workflow [GoodLib checks #43366981541](https://github.com/Yumesekai12321/GoodLib/actions/runs/43366981541)
+ở commit `aa9f86872448b97441624dd2a379f371bc94a13e` đã hoàn thành **success**:
+
+- [Windows](https://github.com/Yumesekai12321/GoodLib/actions/runs/43366981541/job/131693597482): success, 3 phút 17 giây.
+- [Ubuntu](https://github.com/Yumesekai12321/GoodLib/actions/runs/43366981541/job/131693597966): success, 53 giây.
+
+Cả hai runner cài từ checkout sạch bằng `npm ci`, qua lint/format, 19 integration
+tests, smoke và 3 E2E. Ảnh trình duyệt được lưu trong artifact riêng theo hệ điều
+hành của run. Đây là bằng chứng tự động trên môi trường GitHub độc lập với máy
+local; không phải xác nhận Dương đã tự chạy trên máy của mình.
+
+Commit tài liệu sau đó chỉ bổ sung bằng chứng, không đổi nguồn ứng dụng hoặc test.
+
+## Bản demo trên máy hiện tại
+
+Đã tạo `.env` từ `.env.example` khi chưa có file cấu hình, chạy migration và seed
+6 sách mẫu vào DB local mới. `npm run db:audit` đạt. Chạy `npm start` và kiểm tra
+`http://127.0.0.1:3000/books`: HTTP 200, có 6 dòng sách; tìm `VN001` trả HTTP 200
+và đúng sách. Dữ liệu demo và `.env` nằm ngoài Git. Các test vẫn dùng DB tạm riêng.
 
 ## Kết quả ban đầu tại `990e7d9` trước tích hợp
 

@@ -48,7 +48,7 @@ Mốc đối chiếu GitHub trước phần Hoàng: `main` tại commit `68ad1c2
 - [ ] Từng người đọc, kiểm tra và nhận phần bàn giao; tạo commit/PR đúng danh tính.
 - [ ] Dương điền và gửi `second-machine-test.md` với kết quả từ máy khác.
 - [ ] Đạt điền `technical-review.md`, phản hồi cho người sở hữu lỗi.
-- [ ] CI GitHub Windows/Ubuntu chạy thành công. Run cũ `42407972093` lỗi `format:check` trên Windows; Ubuntu bị hủy sau đó. Cần kiểm tra run của commit mới.
+- [x] CI GitHub Windows/Ubuntu chạy thành công ngày 13/11/2026 tại commit `aa9f868`; [run 43366981541](https://github.com/Yumesekai12321/GoodLib/actions/runs/43366981541) cả hai job đều success. Run cũ `42407972093` đã được thay bằng bằng chứng của bản tích hợp.
 - [ ] Hoàng chốt bản chạy trước tối 09/11 sau review, ghi commit/tag được nhóm duyệt.
 
 Các mốc chưa xác nhận giữ trạng thái chờ; không tự đánh dấu xong thay nhóm.
