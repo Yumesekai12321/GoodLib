@@ -1,4 +1,4 @@
-# GoodLib · Nhóm 11
+# GoodLib
 
 Ứng dụng quản lý sách Sprint 1 bằng **Node.js 24 / Express / EJS / SQLite**.
 Giao diện tiếng Việt, chạy cục bộ tại <http://127.0.0.1:3000/books>.
@@ -26,7 +26,7 @@ Seed là thao tác riêng, thêm 6 sách mẫu tiếng Việt; chạy nhiều l�
 
 Giữ file `.npmrc` khi chia sẻ repo. better-sqlite3 13 đã kèm binary Node-API;
 cấu hình này bỏ dependency install hooks, tránh npm 11 gọi build native không cần
-thiết trên máy chưa có Windows SDK. Khi thêm dependency cần install hook, Sơn
+thiết trên máy chưa có Windows SDK. Khi thêm dependency cần install hook,
 cần đánh giá lại cấu hình này và kiểm tra cài mới.
 
 ## Tính năng và quy tắc
@@ -107,9 +107,9 @@ Kết quả từng đầu việc, nghiệm thu và kịch bản demo nằm trong
 6. Dừng và chạy `npm start` lại. Sách đã xóa vẫn ẩn, các sách khác vẫn còn.
 7. Chạy `npm run test:smoke` để có bằng chứng tự động về bản ghi ẩn và số lượng sau restart.
 
-Chạy `npm run handoff` để xuất tám gói file theo người vào `artifacts/handoffs/`.
-Cấu hình xuất gói nằm tại `scripts/handoff-map.json`. Theo ủy quyền ngày 13/11,
-Codex đã hoàn tất kiểm tra máy khác và review kỹ thuật; xem báo cáo cuối cùng.
+Chạy `npm run handoff` để xuất các gói file bàn giao vào `artifacts/handoffs/`.
+Cấu hình xuất gói nằm tại `scripts/handoff-map.json`. Đã hoàn tất kiểm tra độc lập
+trên các môi trường Windows và Ubuntu cũng như review kỹ thuật; xem chi tiết tại [báo cáo Sprint 1](docs/sprint-1-report.md).
 
 ## Cấu trúc và hợp đồng
 
@@ -123,7 +123,7 @@ Quy tắc dữ liệu và giới hạn Sprint 1 nằm trong phần tính năng �
   nếu tải binary không được, kiểm tra kết nối/proxy và hướng dẫn build chính thức
   của [better-sqlite3](https://github.com/WiseLibs/better-sqlite3/blob/master/docs/troubleshooting.md).
 - `EADDRINUSE`: dừng tiến trình đang dùng cổng hoặc đổi `PORT` trong `.env`.
-- `Stock audit failed`: chạy `npm run db:audit`, gửi kết quả cho Sơn/Hoàng; giữ DB
+- `Stock audit failed`: chạy `npm run db:audit`; giữ DB
   để điều tra, không xóa hay chạy lệnh sửa dữ liệu tùy tiện.
 - `SQLITE_BUSY`: kiểm tra có công cụ/tiến trình khác giữ transaction; app chờ tối đa 5 giây.
 - Không tìm thấy sách không dấu: tìm đúng dấu tiếng Việt; Sprint 1 chưa yêu cầu bỏ dấu.

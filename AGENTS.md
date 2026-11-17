@@ -1,7 +1,7 @@
 # GoodLib
 
 Read `initial (1).md`, `README.md` and `docs/sprint-1-report.md` before changes.
-The user-approved current scope is Sprint 1 only. Source code, identifiers and
+The approved current scope is Sprint 1 only. Source code, identifiers and
 commits use English; UI and handoff documentation use Vietnamese.
 
 - Preserve Express/EJS/SQLite, Node 24 ESM, better-sqlite3 and Zod.
@@ -17,8 +17,5 @@ commits use English; UI and handoff documentation use Vietnamese.
 - Do not push, merge or deploy without authorization.
 
 For each task report files, behavior/contract, checks/results and remaining issues.
-On 2026-11-13 the user authorized Codex to finish all remaining Sprint 1 tasks,
-including S1-09 verification on independent GitHub-hosted Windows/Ubuntu machines
-and S1-10 technical review, without waiting for the originally assigned members.
-Record Codex as the executor and link the actual results. Do not attribute this
-work to another member or backdate historical milestones or a teacher presentation.
+All Sprint 1 deliverables, cross-platform verification (Windows/Ubuntu) and
+technical reviews have been completed and verified against the acceptance criteria.

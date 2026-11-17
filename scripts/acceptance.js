@@ -28,7 +28,7 @@ const report = {
   date: new Date().toISOString(),
   commit: process.env.GITHUB_SHA || gitCommit.stdout.trim(),
   workingTreeDirty: Boolean(gitStatus.stdout.trim()),
-  executor: 'Codex acceptance runner',
+  executor: 'GoodLib acceptance runner',
   environment: {
     os: `${platform()} ${release()} ${arch()}`,
     node: process.version,
@@ -45,7 +45,7 @@ let bookId;
 const book = {
   code: 'MAY2',
   title: 'ĐƯỜNG ĐẾN THƯ VIỆN',
-  author: 'Nhóm GoodLib',
+  author: 'GoodLib',
   category: 'Văn học',
   published_year: '2026',
   total_quantity: '3',

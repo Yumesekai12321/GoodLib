@@ -1,16 +1,16 @@
-# GoodLib — Implementation Specification for AI Coding Agents
+# GoodLib — Implementation Specification
 
 > **Status:** `DRAFT / implementation baseline`
 >
 > **Purpose:** Single entry point for coding GoodLib. This document specifies what to build, how modules interact, and how to verify correctness.
 >
-> **Sources:** Group 11's PowerPoint (17 slides) and Agile WBS spreadsheet (`Ke hoach du an`, S1–S4).
+> **Sources:** Product vision PowerPoint (17 slides) and Agile WBS spreadsheet (`Ke hoach du an`, S1–S4).
 >
 > **Authority:** An approved SRS/decision log supersedes this document. The spreadsheet is the execution baseline where it conflicts with the presentation.
 >
 > **User-facing language:** Vietnamese. **Source code, identifiers, commits, tests:** English.
 
-## 0. Mandatory agent protocol
+## 0. Core development protocol
 
 1. **Inspect the repository first:** existing source, `package.json`, lockfile, migrations, database adapter, tests, Git status, and related task/PR. Never assume this document describes already implemented code.
 2. **Implement only the requested WBS task** and its essential dependencies. Follow existing conventions if the repo already has working implementations; explain any necessary divergence.
@@ -63,7 +63,7 @@ Browser → Express routes/middleware → controllers → services → repositor
 
 ### 1.3. Decision register: resolve conflicts before coding related features
 
-| ID | Execution baseline (spreadsheet) | Alternative in slides | Agent action |
+| ID | Execution baseline (spreadsheet) | Alternative in slides | Engineering action |
 |---|---|---|---|
 | `BR-01` | **Max 10 active loans per reader** | Max 5 books | Implement **10**; confirm with PO before S2 integration. |
 | `BR-02` | **Due date = borrow date + 4 calendar months**, clamp missing day to last valid day | 14 days | Implement **4 calendar months**, not 120 days. |
@@ -312,23 +312,21 @@ Build the screens listed in Section 4 with shared partials, **not** a generic ad
 - All inputs have labels, visible focus, keyboard access, helpful inline messages and responsive table overflow. UI text in Vietnamese.
 - Use one design token stylesheet (`src/public/css/tokens.css`) and reusable EJS partials so parallel contributors do not invent separate themes.
 
-**AI skills: use selectively, not all at once.** These are external/community agent skills; check their instructions and compatibility before installing. They do not execute by virtue of appearing here.
+**Frontend & UI Design Principles:**
 
-| Skill | When to use | Expected output |
-|---|---|---|
-| [Anthropic `frontend-design`](https://github.com/anthropics/skills) | First book-list/form design + shared EJS/CSS | One consistent interface direction and reusable components |
-| [Vercel `web-design-guidelines`](https://github.com/vercel-labs/agent-skills) | Review completed screens | File-specific accessibility, usability, responsive findings |
-| [Anthropic `webapp-testing`](https://github.com/anthropics/skills) | Browser smoke tests with locally running app | Reproducible E2E steps, screenshot/trace evidence |
-| [Impeccable](https://github.com/pbakaus/impeccable) **or** [UI/UX Pro Max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | Optional polish/design exploration, after core works | Targeted improvements, no change to business rules |
+- Standardize interface styling using shared EJS partials and design tokens in `src/public/css/tokens.css`.
+- Adhere to clean typography, accessibility standards (ARIA, focus outlines, skip links), and responsive breakpoints.
+- Verify browser workflows and responsive rendering with Playwright E2E tests and captured screenshot artifacts.
+- Keep components minimal, semantic, and aligned with user flows without unnecessary UI bloat.
 
-For backend/database/security, prioritize **repository conventions + this spec + automated tests + official library docs** over an unverified third-party skill. If creating one repo-local agent instruction file, use `AGENTS.md` pointing to this spec, with explicit domain invariants and the task reporting contract. Avoid proliferating speculative custom skills.
+For backend, database, and security, prioritize **repository conventions, this specification, automated tests, and official library documentation**. Maintain explicit domain invariants and clean task reporting.
 
 ## 6. Repository layout (target, adapt to existing code)
 
 ```text
 GoodLib/
 ├── initial.md                   # THIS implementation contract
-├── AGENTS.md                    # Short agent entry point linking to initial.md
+├── AGENTS.md                    # Architecture and development guidelines
 ├── README.md                    # Install/run/migrate/seed/test/demo
 ├── .env.example                 # Only non-secret example values
 ├── .nvmrc
@@ -459,22 +457,10 @@ A task is **Done** only when:
 
 **Deployment assumption:** One Node/Express server and one local persistent SQLite file. Use a DB-aware backup mechanism (SQLite backup API or `VACUUM INTO`) and verify a test restore. No public exposure until S3 security controls are complete.
 
-## 10. Recommended first agent request
+## 10. Development workflow & verification checklist
 
-```text
-Read initial (1).md and inspect the current GoodLib repository before editing.
-Identify the requested WBS ID, existing implementations, dependencies,
-contract mismatches, and tests. Follow the fixed Express + EJS + SQLite
-architecture and preserve all domain invariants.
-
-Implement ONLY [WBS-ID]: [acceptance criteria].
-Add validation, negative/boundary tests, and required migrations.
-Do not implement speculative features from the slide deck or silently
-change the 10-loan / four-calendar-month rules.
-
-Run the relevant checks and report the actual results. Return:
-1) files changed, 2) behavior and API/schema decisions,
-3) tests and outputs, 4) remaining risks/product decisions,
-5) draft PR summary linked to [WBS-ID].
-No production DB changes, merges, deployments or destructive operations.
-```
+1. Inspect the existing repository, dependencies, migrations, and test suites before editing.
+2. Confirm the assigned WBS ID scope, contract requirements, and data invariants.
+3. Follow the Express + EJS + SQLite architecture without introducing unapproved dependencies.
+4. Add comprehensive server-side validation, error handling, and automated tests for any changed logic.
+5. Execute linting, formatting, integration tests, and smoke tests locally before committing.

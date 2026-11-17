@@ -12,7 +12,7 @@
     <%- include('../partials/formField', { name: 'published_year', label: 'Năm xuất bản', type: 'number', required: false, wide: false, help: 'Số nguyên 0–9999; để trống nếu chưa rõ.' }) %>
     <%- include('../partials/formField', { name: 'total_quantity', label: 'Tổng số cuốn', type: 'number', required: true, wide: false, help: 'Số nguyên không âm; không thấp hơn số cuốn chưa trả.' }) %>
   </div>
-  <aside class="stock-note"><strong>Số còn do hệ thống cập nhật</strong><p>Số còn = tổng − số cuốn chưa trả. Sprint 1 chưa có mượn sách nên số còn bằng tổng.</p><% if (id) { %><p>Trước khi lưu: tổng <%= values.total_quantity %> · số còn <%= values.available_quantity ?? '—' %>.</p><% } %></aside>
+  <aside class="stock-note"><strong>Số còn do hệ thống cập nhật</strong><p>Số còn = tổng − số cuốn chưa trả.</p><% if (id) { %><p>Trước khi lưu: tổng <%= values.total_quantity %> · số còn <%= values.available_quantity ?? '—' %>.</p><% } %></aside>
   <div class="form-actions"><a class="button button-secondary" href="/books">Hủy</a><button class="button button-primary" type="submit"><%= id ? 'Lưu thay đổi' : 'Thêm sách' %></button></div>
 </form>
 <%- include('../partials/footer') %>

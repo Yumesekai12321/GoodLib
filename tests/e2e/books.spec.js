@@ -6,7 +6,7 @@ test('E2E-01: add → Vietnamese search → edit → cancel/confirm archive', as
   await page.getByRole('link', { name: 'Thêm sách', exact: true }).click();
   await page.getByRole('textbox', { name: 'Mã sách', exact: true }).fill('DEMO01');
   await page.getByRole('textbox', { name: 'Tên sách', exact: true }).fill('ĐƯỜNG ĐẾN THƯ VIỆN');
-  await page.getByLabel('Tác giả', { exact: true }).fill('Nhóm 11');
+  await page.getByLabel('Tác giả', { exact: true }).fill('GoodLib');
   await page.getByRole('spinbutton', { name: 'Tổng số cuốn', exact: true }).fill('3');
   await page.screenshot({ path: 'artifacts/books-form.png', fullPage: true });
   await expect(page.locator('input[name="available_quantity"]')).toHaveCount(0);

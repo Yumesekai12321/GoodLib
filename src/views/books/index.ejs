@@ -5,7 +5,7 @@
 </section>
 <%- include('../partials/flash') %>
 <section class="catalog" aria-label="Danh sách sách">
-  <div class="catalog-toolbar"><div><h2>Danh mục sách</h2><p><strong><%= pagination.total %></strong> đầu sách<%= q ? ' phù hợp' : ' đang hoạt động' %></p></div><span class="badge badge-neutral">Kho sách</span></div>
+  <div class="catalog-toolbar"><div><h2>Danh mục sách</h2></div></div>
   <%- include('../partials/search', { q }) %>
   <% if (!books.length) { %>
     <div class="empty-state"><span class="empty-icon" aria-hidden="true">▤</span><h3><%= q ? 'Không tìm thấy sách phù hợp' : 'Danh mục đang trống' %></h3><p><%= q ? 'Thử mã hoặc tên khác. Từ khóa cần giữ đúng dấu tiếng Việt.' : 'Thêm cuốn sách đầu tiên để bắt đầu quản lý.' %></p><a href="<%= q ? '/books' : '/books/new' %>"><%= q ? 'Xem tất cả sách' : 'Thêm sách mới' %></a></div>
@@ -21,7 +21,7 @@
         <td class="actions"><a href="/books/<%= book.id %>/edit" aria-label="Sửa <%= book.code %>">Sửa</a><a class="danger-link" href="/books/<%= book.id %>/archive" aria-label="Xóa mềm <%= book.code %>">Xóa mềm</a></td>
       </tr><% } %></tbody></table>
     </div>
-    <div class="catalog-bottom"><span>Số còn được tính tự động từ tổng và số cuốn chưa trả.</span>
+    <div class="catalog-bottom"><span></span>
       <nav class="pagination" aria-label="Phân trang">
         <% if (pagination.page > 1) { %><a href="/books?q=<%= encodeURIComponent(q) %>&page=<%= pagination.page - 1 %>">Trước</a><% } %>
         <span>Trang <%= pagination.page %> / <%= pagination.pages %></span>
